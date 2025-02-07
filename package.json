@@ -1,0 +1,32 @@
+{
+  "name": "type-on-path",
+  "version": "1.0.0",
+  "description": "Use lodash-like api to access the type via the json path",
+  "main": "main.ts",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuliisrobin/type-on-path.git"
+  },
+  "keywords": [
+    "typescript",
+    "type",
+    "path"
+  ],
+  "author": "fuliisrobin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fuliisrobin/type-on-path/issues"
+  },
+  "homepage": "https://github.com/fuliisrobin/type-on-path#readme",
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "lodash": "^4.17.21",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.3"
+  }
+}
