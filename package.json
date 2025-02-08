@@ -2,7 +2,7 @@
   "name": "type-on-path",
   "version": "1.0.1",
   "description": "Use lodash-like api to access the type via the json path",
-  "main": "main.ts",
+  "main": "src/main.ts",
   "scripts": {
     "test": "jest"
   },
