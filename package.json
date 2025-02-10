@@ -1,6 +1,6 @@
 {
   "name": "type-on-path",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Use lodash-like api to access the type via the json path",
   "main": "src/main.ts",
   "scripts": {

@@ -67,7 +67,6 @@ type User = TypeOnPath<{ user: { name: string; age: number } }, "user.name">; //
 ```typescript
 type FirstPost = TypeOnPath<{ posts: [{ title: string; content: string }] }, "posts[0].title">; // string
 ```
- Understood! I'll update the documentation to explicitly mention that `TypeOnPath` can handle arrays with different types of elements and will return a union type of all possible values. Here's the updated text:
 
 ## Handling Arrays with Different Types
 
@@ -94,6 +93,23 @@ type FirstPostTitleInDeepArray = TypeOnPath<DeepNestedArray, "[0].posts[0].title
 - If the array element does not match any known type in its hierarchy, it returns `never`.
 
 This behavior ensures that you can handle complex and dynamic data structures with confidence, knowing that TypeScript's type system can adapt to different types within arrays or nested properties.
+
+### Use with lodash _.get
+Using _.get is a good way of reducing the branchs for nested `?.` access to the properties, however, lodash's _.get does not provide strong typing for nested properties or arrays, and with `TypeOnPath` can automatically populate the type of the value. This is extremely useful when you already have a type for the object but need to access deeply nested properties or array elements. For example, query result from GraphQL, data type is guaranteed by the types generated from the GraphQL schema.
+
+```typescript
+import { TypeOnPath } from 'type-on-path'; 
+import { get } from 'lodash';
+
+function typedGet<T, P extends string>(obj: T, path: P): TypeOnPath<T, P> {
+  return get(obj, path) as TypeOnPath<T, P>;
+}
+const data = { user: { name: 'John', age: 30 }, posts: [{ title: 'Post1', content: 'Content1' }] };
+
+const userName = typedGet(data, "user.name"); //user.name value is John and is string type
+const firstPostTitle = typedGet(data, "posts[0].title"); //firstPostTitle value: Post1 and is string type
+```
+
 
 ## Path Syntax
 - **Dot Notation**: `"user.name"` accesses the nested property within an object.
