@@ -27,14 +27,3 @@ jobs:
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM }}
-    - run: npm pack
-    - name: "Upload npm package to Release"
-      if: github.event_name == 'release'
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GHPAT }}
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: type-on-path-*.tgz
-        asset_name: type-on-path-*.tgz
-        asset_content_type: application/gzip
