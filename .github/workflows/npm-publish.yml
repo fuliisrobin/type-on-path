@@ -35,4 +35,5 @@ jobs:
       with:
         upload_url: ${{ github.event.release.upload_url }}
         asset_path: type-on-path-*.tgz
+        asset_name: type-on-path-*.tgz
         asset_content_type: application/gzip
