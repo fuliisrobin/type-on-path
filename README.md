@@ -1,6 +1,6 @@
  # TypeOnPath
 
-The `TypeOnPath` utility is a TypeScript type that allows you to extract nested properties from an object based on a string path. This can be particularly useful when dealing with JSON-like data structures or complex objects where the structure might not be fully known at compile time.
+The `TypeOnPath` utility is a TypeScript type that allows you to infer type from an object based on a string path. This can be particularly useful when dealing with JSON-like data structures, the data structures must be fully known at compile time, and only support literal path (paths from variables are not supported).
 
 ### Install
 
