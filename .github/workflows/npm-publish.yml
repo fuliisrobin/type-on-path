@@ -27,6 +27,7 @@ jobs:
     - run: npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM }}
+    - run: npm pack
     - name: "Upload npm package to Release"
       if: github.event_name == 'release'
       uses: actions/upload-release-asset@v1
